@@ -1,0 +1,103 @@
+<html>
+<head>
+    <script src="{{=URL('static','js/jquery-2.1.3.min.js')}}" ></script>
+    <script>
+    // floorplan will be loaded by wcmd.js, here we specify URL
+{{if fplan_loaded == 'true':}}
+        var fplanImgUrl="{{=URL('download',args=floorplans[0].file)}}";
+{{else:}}
+        var fplanImgUrl="{{=URL('static','images/fplan-sample.jpg')}}";
+{{pass}}
+        
+        
+        
+    </script>
+    <script src="{{=URL('static','js/wcml.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{=URL('static','css/wcml-shared.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{=URL('static','css/wcml-app.css')}}">
+
+</head>
+<body>
+<!-- top spacing -->
+<div id="tile-1" class="tiles">
+    <header class="mastheader row" id="header">
+      {{if response.title:}}
+            <div class="page-header">
+                <div id="usage-desc">
+                &nbsp;[{{=A(('back'), _href=URL('index'))}}]
+    arrow keys / vim <i>hjkl</i> moves around,  <i>enter</i> / <i>i</i> adds point
+                </div>
+                <h1>{{=response.title}}
+                <small id="subtitle">{{=response.subtitle or ''}}</small>
+                <small id="version">early adopters release</small>
+                </h1>
+            </div>
+	{{pass}}
+    </header>
+    
+    
+</div>
+<!-- left spacing -->
+<div id="tile-2" class="tiles"></div>
+<div id="wrapper-main">
+<!-- main window -->
+<div id="main">
+
+        <div id="fplan">
+        </div>
+    
+        <div id="heatmap">
+        </div>
+
+        <div id="viewfinder">
+        </div>
+
+        <div id="sample-map">
+        </div>
+    
+        <div id="ap-layer">
+        </div>
+
+
+</div>
+</div>
+
+<!-- left spacing -->
+<div id="tile-3" class="tiles">
+
+<div id="controls">
+	<div id="lbl-color">Viewfinder color:</div>
+	<div id="color-reset-container">
+	<div id="color-red" class="color-selector"></div>
+	<div id="color-green" class="color-selector"></div>
+	<div id="color-blue" class="color-selector"></div>
+
+    <button type="button" id="btn-reset">Reset (r)</button>
+	</div>
+
+	<button type="button" id="btn-place-ap">Place AP (a)</button>
+	<br />
+	<button type="button" id="btn-gen-hmap">Generate heatmap (g)</button>
+
+	<div id="lbl-ctrl-hmap-vis">Adjust heatmap opacity (v):</div>
+    <input type="range" id="ctrl-hmap-vis" min="0" max="100" value="100"></input></br>
+    <button type="button" id="btn-gen-deliv">Generate deliverables</button></br>
+    <div id="deliv-link">[none]</div>
+</div>
+
+<div id="signal">dBm</div>
+<div id="sig-chart"></div>
+
+</div>
+
+
+</div>
+
+<div id="tile-4" class="tiles">
+    <!-- event window -->
+<textarea id="event-log" tabindex="2" ></textarea>
+</div>
+
+
+</body>
+</html>

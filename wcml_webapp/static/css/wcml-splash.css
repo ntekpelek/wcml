@@ -1,0 +1,17 @@
+#main img {
+	width: 60%;
+}
+
+body {
+	margin-left: 2%;
+	margin-right: 2%;
+}
+#survey-name {
+	font-size: 0.9em;
+}
+
+#about {
+	width: 60%;
+	margin: auto;
+	text-align: justify;
+}

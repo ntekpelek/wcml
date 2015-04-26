@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{=T.accepted_language or 'en'}}">
+<head>
+<title>{{=response.title or request.application}}</title>	   
+  <meta charset="utf-8" />
+  <!-- http://dev.w3.org/html5/markup/meta.name.html -->
+  <meta name="application-name" content="{{=request.application}}" />
+  <link rel="stylesheet" type="text/css" href="{{=URL('static','css/wcml-shared.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{=URL('static','css/wcml-splash.css')}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+      function confirmReset() {
+          var res = confirm("Confirm reset of app. This will remove all survey points, heatmap and floorplan.");
+          if ( res == true ) {
+              window.location.href="reset_app";
+          }
+      }
+  </script>
+  {{
+  # using sidebars need to know what sidebar you want to use
+  left_sidebar_enabled = globals().get('left_sidebar_enabled',False)
+  right_sidebar_enabled = globals().get('right_sidebar_enabled',False)
+  middle_columns = {0:'span12',1:'span9',2:'span6'}[
+    (left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]
+  }}
+  {{block head}}{{end}}
+</head>
+<body>
+  <div class="container">
+    <!-- Masthead ================================================== -->
+    <header class="mastheader row" id="header">
+      {{if response.title:}}
+            <div class="page-header">
+            <div id="usage-desc">&nbsp;
+            </div>
+                <h1>{{=response.title}}
+                <small id="subtitle">{{=response.subtitle or ''}}</small>
+                <small id="version">v1.0</small>
+                </h1>
+            </div>
+	{{pass}}
+    </header>
+
+    <section id="main" class="main row">
+       
+        <div>
+            {{block center}}
+            {{include}}
+            {{end}}
+        </div>
+
+        {{if right_sidebar_enabled:}}
+        <div class="span3">
+            {{block right_sidebar}}
+            <h3>Right Sidebar</h3>
+            <p></p>
+            {{end}}
+        </div>
+        {{pass}}
+    </section><!--/main-->
+  </div> <!-- /container --> 
+    
+</body>
+</html>

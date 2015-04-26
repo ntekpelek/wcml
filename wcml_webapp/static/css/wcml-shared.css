@@ -1,0 +1,44 @@
+body {
+	background-color: #eee; 
+	margin: 0px;
+	font-family: sans-serif;
+}
+
+#header h1 {
+	font-size: 1em;
+	margin: 0px;
+	width: 50%;
+	display: inline;
+}
+#header #usage-desc {
+	width: 40%;
+	text-align: left;
+	float: left;
+	font-size: 0.8em;
+	display: box;
+}
+#version {
+	color: #666;
+	font-size: 0.7em;
+}
+
+
+#header h1 small {
+/*	font-size: 0.8em;*/
+}
+#subtitle {
+	color: #333;
+	font-size: 0.8em;
+}
+fieldset {
+	border: none;
+}
+a {
+	color: #444;
+	text-decoration: none;
+	font-size: 0.9em;
+}
+a:hover {
+	border-bottom: 1px dashed black;
+	color: black;
+}

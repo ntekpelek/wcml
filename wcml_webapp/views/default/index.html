@@ -1,0 +1,22 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+<span id="survey-name">survey name:</span>
+    {{for survey in surveys:}}
+    {{=B(survey.name)}}    
+    {{pass}}
+<br />
+[{{=A(("change name"), _href=URL('default','set_survey_name'))}}]
+<br />
+
+{{if fplan_loaded == 'true':}}
+{{=IMG(_src=URL('download',args=floorplans[0].file))}}
+{{else:}}
+{{=IMG(_src=URL('static','images/fplan-sample.jpg'))}}
+{{pass}}
+
+<br />
+[{{=A(("start survey"), _href=URL('default','do_survey'))}}] |
+[{{=A(("set floorplan"), _href=URL('default','set_floorplan'))}}] |
+[<a href="#" onClick="confirmReset()">reset app</a>] |
+[{{=A(("about"), _href=URL('default','about'))}}]
