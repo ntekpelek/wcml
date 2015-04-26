@@ -1,0 +1,3 @@
+#!/bin/sh
+/bin/systemctl enable web2py
+/usr/sbin/update-rc.d wcml_sig_mon defaults

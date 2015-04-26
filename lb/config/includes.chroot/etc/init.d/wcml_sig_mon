@@ -1,0 +1,60 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          wcml_sig_mon
+# Required-Start:    $network $local_fs
+# Required-Stop:
+# Should-Start:
+# Default-Start:     2 3 4 5
+# Default-Stop:	     0 1 6
+# Short-Description: Starts wcml signal monitor
+# Description:       /et
+### END INIT INFO
+
+do_start () {
+	/opt/wcml/bin/wcml_sig_mon.py &
+	echo $! > /var/run/wcml_sig_mon.pid
+}
+
+do_status () {
+	if [ -f /var/run/wcml_sig_mon.pid ] ; then
+		echo "running"
+		return 0
+	else
+		echo "not running"
+		return 1
+	fi
+}
+
+do_stop () {
+	if [ -f /var/run/wcml_sig_mon.pid ] ; then
+		echo "wcml_sig_mon stopped"
+		kill -9 `cat /var/run/wcml_sig_mon.pid`
+		rm /var/run/wcml_sig_mon.pid
+	else
+		echo "wcml_sig_mon not running"
+	fi
+}
+
+case "$1" in
+  start|"")
+	do_start
+	;;
+  restart|reload|force-reload)
+	echo "Error: argument '$1' not supported" >&2
+	exit 3
+	;;
+  stop)
+	do_stop
+	# No-op
+	;;
+  status)
+	do_status
+	exit $?
+	;;
+  *)
+	echo "Usage: motd [start|stop|status]" >&2
+	exit 3
+	;;
+esac
+
+:

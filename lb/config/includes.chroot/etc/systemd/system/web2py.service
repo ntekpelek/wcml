@@ -1,0 +1,10 @@
+[Unit]
+Description=Local web2py server
+
+[Service]
+PIDFile=/var/run/web2py.pid
+ExecStart=/usr/bin/python /opt/wcml/web2py/web2py.py --nogui -i 127.0.0.1 -p 80 -a '' --pid_filename=/var/run/web2py.pid
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

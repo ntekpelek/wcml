@@ -1,0 +1,33 @@
+Package: gimp
+Pin: version *
+Pin-Priority: -1
+
+Package: deluge
+Pin: version *
+Pin-Priority: -1
+
+Package: cups-common
+Pin: version *
+Pin-Priority: -1
+
+Package: firebird2.5-common
+Pin: version *
+Pin-Priority: -1
+
+Package: default-jre
+Pin: version *
+Pin-Priority: -1
+
+Package: gimp-data
+Pin: version *
+Pin-Priority: -1
+
+Package: java-common
+Pin: version *
+Pin-Priority: -1
+
+
+
+Package: default-jre
+Pin: version *
+Pin-Priority: -1
