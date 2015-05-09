@@ -63,7 +63,7 @@ def generate(json_in, png_out):
 
         xi = np.linspace(0, int(fplanwidth), 200)
         yi = np.linspace(0, int(fplanheight), 200)
-        zi = griddata(xpoints, ypoints, signals, xi, yi)
+        zi = griddata(xpoints, ypoints, signals, xi, yi, interp='linear')
         mycdict = {'red': ((0.0, 1.0, 1.0),
             (0.4, 1.0, 1.0),
             (1.0, 0.0, 0.0)),
