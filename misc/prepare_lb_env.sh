@@ -9,6 +9,7 @@ cd $RDIR
 lb config --archive-areas "main contrib non-free" --bootappend-live "boot=live components persistence"
 cp $LBDIR/config/apt/preferences config/apt
 cp $LBDIR/config/package-lists/wcml.list.chroot config/package-lists
+cp -R $LBDIR/config/bootloaders config/bootloaders
 cp -R $LBDIR/config/includes.chroot/opt config/includes.chroot/
 cp -R $W2PYDIR config/includes.chroot/opt/wcml
 cp -R $LBDIR/config/includes.chroot/etc config/includes.chroot/
