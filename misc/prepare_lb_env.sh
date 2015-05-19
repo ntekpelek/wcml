@@ -13,6 +13,7 @@ cp -R $LBDIR/config/bootloaders config/bootloaders
 cp -R $LBDIR/config/includes.chroot/opt config/includes.chroot/
 cp -R $W2PYDIR config/includes.chroot/opt/wcml
 cp -R $LBDIR/config/includes.chroot/etc config/includes.chroot/
+cp -R $LBDIR/config/includes.chroot/home config/includes.chroot/
 cp $LBDIR/config/hooks/9001-enable-wcml-services.hook.chroot config/hooks/
 cp -R $APPDIR config/includes.chroot/opt/wcml/web2py/applications/
 

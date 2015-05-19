@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=WCML App 
+GenericName=Web Browser
+Comment=Access the Internet
+Exec=/usr/bin/chromium http://wcml.local
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=chromium
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Chromium
+StartupNotify=true
